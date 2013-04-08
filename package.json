@@ -1,0 +1,38 @@
+{
+  "name": "datapipe",
+  "description": "An extendable Node.js Buffer with promised-based piping.",
+  "version": "0.1.0",
+  "author": "Tyler Kellen",
+  "homepage": "http://tkellen.com/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tkellen/node-datapipe.git"
+  },
+  "bugs": {
+    "url": "http://github.com/tkellen/node-datapipe/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/tkellen/node-datapipe/blob/master/LICENSE"
+    }
+  ],
+  "scripts": {
+    "test": "grunt test"
+  },
+  "main": "lib/datapipe",
+  "keywords": [
+    "node-task",
+    "buffer",
+    "pipe"
+  ],
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-watch": "~0.3.1",
+    "grunt-contrib-jshint": "~0.4.1",
+    "grunt-contrib-nodeunit": "~0.1.2"
+  },
+  "dependencies": {
+    "when": "~2.0.0"
+  }
+}
