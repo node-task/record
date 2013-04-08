@@ -47,12 +47,12 @@ buffer.content(new Buffer('data','utf8')).toString(); // '64617461'
 var buffer = new DataPipe('path/to/source');
 buffer.content('foo');
 var addBar = function(buffer) {
-  buffer.content(buffer.toString()+" bar");
-  return buffer;
+  var input = buffer.toString();
+  return buffer.content(input+" bar");
 };
 var addBaz = function(buffer) {
-  buffer.content(buffer.toString()+" baz");
-  return buffer;
+  var input = buffer.toString();
+  return buffer.content(input+" baz");
 }
 buffer.pipe(addBar).then(addBaz).then(function(piped) {
   console.log(piped.toString()); // 'foo bar baz'
