@@ -1,5 +1,5 @@
 # node-datapipe
-> An extendable Node.js Buffer with promised-based piping.
+> An extendable Node.js Buffer class with promised-based piping.
 
 This library was built to be used as a base class for [node-task](http://github.com/node-task/spec) buffer interfaces.
 

@@ -1,6 +1,6 @@
 {
   "name": "datapipe",
-  "description": "An extendable Node.js Buffer with promised-based piping.",
+  "description": "An extendable Node.js Buffer class with promised-based piping.",
   "version": "0.1.0",
   "author": "Tyler Kellen",
   "homepage": "http://tkellen.com/",
