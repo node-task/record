@@ -21,13 +21,13 @@ The buffer's encoding type.
 Fill buffer synchronously and return self for chaining.  Input may be a Buffer or a string which is valid for the instance's encoding type.
 
 ### toString(encoding)
-Returns a string value for buffer.  If encoding is not specified, `this.encoding` will be used.
+Return a string value for buffer.  If encoding is not specified, `this.encoding` will be used.
 
 ### clone()
 Return a clone of the DataPipe instance.
 
 ### pipe(method)
-Pass a clone of the DataPipe into the method and return a promise which resolves to the return value of the provided method.
+Pass a clone of the DataPipe instance into method for processing and return a promise which resolves to the return value of said method.
 
 ## Usage:
 ```js
