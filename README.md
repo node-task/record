@@ -12,7 +12,7 @@ Create a new DataPipe constructor with the keys of config object assigned to its
 Create instance of DataPipe with source and encoding assigned.  Encoding defaults to `utf8`.
 
 ### source
-An identifier for the buffer's source path, url, object, etc.
+An identifier for the buffer's source: filepath, url, object, etc.
 
 ### encoding
 The buffer's encoding type.
