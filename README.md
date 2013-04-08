@@ -43,6 +43,20 @@ buffer.content(new Buffer('64617461', 'hex')).toString(); // 'data'
 var buffer = new DataPipe('path/to/source', 'hex');
 buffer.content('data'); // TypeError: Invalid hex string (encoding defaults to hex)
 buffer.content(new Buffer('data','utf8')).toString(); // '64617461'
+
+var buffer = new DataPipe('path/to/source');
+buffer.content('foo');
+var addBar = function(buffer) {
+  buffer.content(buffer.toString()+" bar");
+  return buffer;
+};
+var addBaz = function(buffer) {
+  buffer.content(buffer.toString()+" baz");
+  return buffer;
+}
+buffer.pipe(addBar).then(addBaz).then(function(piped) {
+  console.log(piped.toString()); // 'foo bar baz'
+});
 ```
 
 ## Extending:
