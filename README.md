@@ -46,4 +46,4 @@ buffer.content(new Buffer('data','utf8')).toString(); // '64617461'
 ```
 
 ## Extending:
-See [node-filebuffer](https://github.com/tkellen/node-filebuffer/blob/master/lib/filebuffer.js)
+See [node-filebuffer](https://github.com/node-task/filebuffer/blob/master/lib/filebuffer.js)

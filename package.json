@@ -6,15 +6,15 @@
   "homepage": "http://tkellen.com/",
   "repository": {
     "type": "git",
-    "url": "git://github.com/tkellen/node-datapipe.git"
+    "url": "git://github.com/node-task/datapipe.git"
   },
   "bugs": {
-    "url": "http://github.com/tkellen/node-datapipe/issues"
+    "url": "http://github.com/node-task/datapipe/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://github.com/tkellen/node-datapipe/blob/master/LICENSE"
+      "url": "http://github.com/node-task/datapipe/blob/master/LICENSE"
     }
   ],
   "scripts": {
