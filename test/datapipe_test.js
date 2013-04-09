@@ -5,10 +5,9 @@ var when = require('when');
 
 exports['DataPipe'] = {
   'constructor': function (test) {
-    test.expect(5);
+    test.expect(4);
     test.equal((new DataPipe('test')).constructor, DataPipe, 'should create a datapipe instance');
     test.equal((new DataPipe('test')).source, 'test', 'should save buffer source');
-    test.equal((new DataPipe('test')).encoding, 'utf8', 'should default to utf8 encoding');
     test.equal((new DataPipe('test', 'ascii')).encoding, 'ascii', 'should save encoding');
     test.equal((new DataPipe('test','utf8','content')).toString(), 'content', 'should allow initialization with value');
     test.done();

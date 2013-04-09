@@ -7,7 +7,7 @@ This library was built to be used as a base class for [node-task] buffer interfa
 Inherits [Node.js Buffer].
 
 ### constructor(source, encoding, data)
-Create a [Node.js Buffer] with additional properties and methods (encoding defaults to `utf8`).
+Create a [Node.js Buffer] with additional properties and methods.
 
 ### source
 An property identifying the buffer's source: filepath, url, object, etc.
