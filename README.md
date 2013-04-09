@@ -1,13 +1,13 @@
 # node-datapipe
 > An extendable Node.js Buffer class with promised-based piping.
 
-This library was built to be used as a base class for [node-task](http://github.com/node-task/spec) buffer interfaces.
+This library was built to be used as a base class for [node-task] buffer interfaces.
 
 ## API
-Inherits [Node.js Buffer](http://nodejs.org/api/buffer.html).
+Inherits [Node.js Buffer].
 
 ### constructor(source, encoding, data)
-Create a [Node.js Buffer](http://nodejs.org/api/buffer.html) with additional properties and methods (encoding defaults to `utf8`).
+Create a [Node.js Buffer] with additional properties and methods (encoding defaults to `utf8`).
 
 ### source
 An property identifying the buffer's source: filepath, url, object, etc.
@@ -22,13 +22,13 @@ Return a clone of the instance.
 Fill buffer synchronously and return self for chaining.  Input may be any Buffer, or a string which is valid for the instance's encoding.
 
 ### load(opts)
-Read contents of source into buffer and return a promise which resolves to self.  If any additional parameters are required for loading (i.e. providing a s3 client), they can be passed in via opts.  This is a noop until extended (see [node-filebuffer] and [node-s3buffer] for examples).
+Read contents of source into buffer and return a promise which resolves to self.  If any additional parameters are required for loading (i.e. providing a s3 client), they can be passed in via opts.  If the buffer already contains data this should immediately return a promise which resolves to self.  This is a noop until extended (see [node-filebuffer] and [node-s3buffer] for examples).
 
 ### save(opts)
 Write contents of buffer to source and return a promise which resolves to self.  If any additional parameters are required for saving (i.e. providing a s3 client, acl settings, etc), they can be passed via opts.  This is a noop until extended (see [node-filebuffer] and [node-s3buffer] for examples).
 
 ### pipe(method)
-Load data into buffer from source (if not already loaded) and process it with `method`, returning a promise which resolves to `methods`'s return value.
+Load data into buffer (if not already loaded) and process it with `method`, yielding a promise which resolves to `methods`'s return value.
 
 ### ::extend(config)
 Create a new DataPipe constructor with the keys of config object assigned to its prototype.  At a minimum, this should define load and save methods (see [node-filebuffer] and [node-s3buffer] for examples).
@@ -63,5 +63,7 @@ buffer.pipe(addBar).then(addBaz).then(function(piped) {
 });
 ```
 
+[Node.js Buffer]: http://nodejs.org/api/buffer.html
+[node-task]: http://github.com/node-task/spec
 [node-filebuffer]: https://github.com/node-task/filebuffer/blob/master/lib/filebuffer.js
 [node-s3buffer]: https://github.com/node-task/s3buffer/blob/master/lib/s3buffer.js
