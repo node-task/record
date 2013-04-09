@@ -4,32 +4,36 @@
 This library was built to be used as a base class for [node-task](http://github.com/node-task/spec) buffer interfaces.
 
 ## API
+Inherits [Node.js Buffer](http://nodejs.org/api/buffer.html).
 
-### ::extend(config)
-Create a new DataPipe constructor with the keys of config object assigned to its prototype.
-
-### constructor(source, encoding)
-Create instance of DataPipe with source and encoding assigned.  Encoding defaults to `utf8`.
+### constructor(source, encoding, data)
+Create a [Node.js Buffer](http://nodejs.org/api/buffer.html) with additional properties and methods (encoding defaults to `utf8`).
 
 ### source
-An identifier for the buffer's source: filepath, url, object, etc.
+An property identifying the buffer's source: filepath, url, object, etc.
 
 ### encoding
-The buffer's encoding type.
-
-### content(input)
-Fill buffer synchronously and return self for chaining.  Input may be a Buffer or a string which is valid for the instance's encoding type.
-
-### toString(encoding)
-Return a string value for buffer.  If encoding is not specified, `this.encoding` will be used.
+String property containing buffer's encoding.
 
 ### clone()
-Return a clone of the DataPipe instance.
+Return a clone of the instance.
+
+### content(input)
+Fill buffer synchronously and return self for chaining.  Input may be any Buffer, or a string which is valid for the instance's encoding.
+
+### load()
+Read contents of source into buffer and return a promise which resolves to self.  This is a noop until extended (see [node-filebuffer] for example).
+
+### save()
+Write contents of buffer to source and return a promise which resolves to self.  This is a noop until extended (see [node-filebuffer] for example).
 
 ### pipe(method)
-Pass a clone of the DataPipe instance into method for processing and return a promise which resolves to the return value of said method.
+Load data into buffer from source (if not already loaded) and process it with `method`, returning a promise which resolves to `methods`'s return value.
 
-## Usage:
+### ::extend(config)
+Create a new DataPipe constructor with the keys of config object assigned to its prototype.  At a minimum, this should define load and save methods (see [node-filebuffer] for example).
+
+## Usage
 ```js
 var DataPipe = require('datapipe');
 var buffer = new DataPipe('path/to/source');
@@ -59,5 +63,7 @@ buffer.pipe(addBar).then(addBaz).then(function(piped) {
 });
 ```
 
-## Extending:
-See [node-filebuffer](https://github.com/node-task/filebuffer/blob/master/lib/filebuffer.js)
+## Extending
+See [node-filebuffer].
+
+[node-filebuffer]: https://github.com/node-task/filebuffer/blob/master/lib/filebuffer.js
