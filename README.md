@@ -22,16 +22,16 @@ Return a clone of the instance.
 Fill buffer synchronously and return self for chaining.  Input may be any Buffer, or a string which is valid for the instance's encoding.
 
 ### load(opts)
-Read contents of source into buffer and return a promise which resolves to self.  If any additional parameters are required for loading (i.e. providing an s3 client), they can be passed in via opts.  This is a noop until extended (see [node-filebuffer] for example).
+Read contents of source into buffer and return a promise which resolves to self.  If any additional parameters are required for loading (i.e. providing an s3 client), they can be passed in via opts.  This is a noop until extended (see [node-filebuffer] and [node-s3buffer] for examples).
 
 ### save(opts)
-Write contents of buffer to source and return a promise which resolves to self.  If any additional parameters are required for saving (i.e. providing an s3 client, acl settings, etc), they can be passed via opts.  This is a noop until extended (see [node-filebuffer] for example).
+Write contents of buffer to source and return a promise which resolves to self.  If any additional parameters are required for saving (i.e. providing an s3 client, acl settings, etc), they can be passed via opts.  This is a noop until extended (see [node-filebuffer] and [node-s3buffer] for examples).
 
 ### pipe(method)
 Load data into buffer from source (if not already loaded) and process it with `method`, returning a promise which resolves to `methods`'s return value.
 
 ### ::extend(config)
-Create a new DataPipe constructor with the keys of config object assigned to its prototype.  At a minimum, this should define load and save methods (see [node-filebuffer] for example).
+Create a new DataPipe constructor with the keys of config object assigned to its prototype.  At a minimum, this should define load and save methods (see [node-filebuffer] and [node-s3buffer] for examples).
 
 ## Usage
 ```js
@@ -63,7 +63,5 @@ buffer.pipe(addBar).then(addBaz).then(function(piped) {
 });
 ```
 
-## Extending
-See [node-filebuffer].
-
 [node-filebuffer]: https://github.com/node-task/filebuffer/blob/master/lib/filebuffer.js
+[node-s3buffer]: https://github.com/node-task/s3buffer/blob/master/lib/s3buffer.js
