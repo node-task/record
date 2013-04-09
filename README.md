@@ -21,11 +21,11 @@ Return a clone of the instance.
 ### content(input)
 Fill buffer synchronously and return self for chaining.  Input may be any Buffer, or a string which is valid for the instance's encoding.
 
-### load()
-Read contents of source into buffer and return a promise which resolves to self.  This is a noop until extended (see [node-filebuffer] for example).
+### load(opts)
+Read contents of source into buffer and return a promise which resolves to self.  If any additional parameters are required for loading (i.e. providing an s3 client), they can be passed in via opts.  This is a noop until extended (see [node-filebuffer] for example).
 
-### save()
-Write contents of buffer to source and return a promise which resolves to self.  This is a noop until extended (see [node-filebuffer] for example).
+### save(opts)
+Write contents of buffer to source and return a promise which resolves to self.  If any additional parameters are required for saving (i.e. providing an s3 client, acl settings, etc), they can be passed via opts.  This is a noop until extended (see [node-filebuffer] for example).
 
 ### pipe(method)
 Load data into buffer from source (if not already loaded) and process it with `method`, returning a promise which resolves to `methods`'s return value.
