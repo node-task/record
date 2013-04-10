@@ -33,6 +33,14 @@ exports['DataPipe'] = {
     test.equal(buffer.toString(), 'yo', 'should return a clone of this instance');
     test.done();
   },
+  '#raw': function (test) {
+    test.expect(1);
+    var source = new Buffer('dude','utf8');
+    var buffer = new DataPipe('path');
+    buffer.content(source);
+    test.equal(buffer.raw(), source, 'should return the underlying buffer');
+    test.done();
+  },
   '#pipe': function (test) {
     test.expect(1);
     var buffer = new DataPipe('path', 'utf8', 'dude');
