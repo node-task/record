@@ -21,17 +21,17 @@ Return a clone of the instance.
 ### content(input)
 Fill buffer synchronously and return self for chaining.  Input may be any Buffer, or a string which is valid for the instance's encoding.
 
-### load(opts)
+### read(opts)
 Read contents of source into buffer and return a promise which resolves to self.  If any additional parameters are required for loading (i.e. providing a s3 client), they can be passed in via opts.  If the buffer already contains data this should immediately return a promise which resolves to self.  This is a noop until extended (see [node-filebuffer] and [node-s3buffer] for examples).
 
-### save(opts)
+### write(opts)
 Write contents of buffer to source and return a promise which resolves to self.  If any additional parameters are required for saving (i.e. providing a s3 client, acl settings, etc), they can be passed via opts.  This is a noop until extended (see [node-filebuffer] and [node-s3buffer] for examples).
 
 ### pipe(method)
 Load data into buffer (if not already loaded) and process it with `method`, yielding a promise which resolves to `methods`'s return value.
 
 ### ::extend(config)
-Create a new DataPipe constructor with the keys of config object assigned to its prototype.  At a minimum, this should define load and save methods (see [node-filebuffer] and [node-s3buffer] for examples).
+Create a new DataPipe constructor with the keys of config object assigned to its prototype.  At a minimum, this should define read and write methods (see [node-filebuffer] and [node-s3buffer] for examples).
 
 ## Usage
 ```js
