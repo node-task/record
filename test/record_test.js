@@ -14,13 +14,25 @@ exports['Record'] = {
   },
   '#content': function (test) {
     test.expect(2);
-    test.equal((new Record('./fake/path')).content('data').toString(), 'data', 'should populate buffer instance with string');
-    test.equal((new Record('./fake/path')).content(new Buffer('data')).toString(), 'data', 'should populate buffer instance with buffer');
+    test.equal((new Record('fake/path')).content('data').toString(), 'data', 'should populate buffer instance with string');
+    test.equal((new Record('fake/path')).content(new Buffer('data')).toString(), 'data', 'should populate buffer instance with buffer');
+    test.done();
+  },
+  '#append': function (test) {
+    test.expect(2);
+    test.equal((new Record('fake/path', 'utf8', 'test')).append('data').toString(), 'testdata', 'should allow appending data with strings');
+    test.equal((new Record('fake/path', 'utf8', 'test')).append(new Buffer('data')).toString(), 'testdata', 'should allow appending data with buffers');
+    test.done();
+  },
+  '#prepend': function (test) {
+    test.expect(2);
+    test.equal((new Record('fake/path', 'utf8', 'test')).prepend('data').toString(), 'datatest', 'should allow prepending data with strings');
+    test.equal((new Record('fake/path', 'utf8', 'test')).prepend(new Buffer('data')).toString(), 'datatest', 'should allow prepending data with buffers');
     test.done();
   },
   '#toString': function (test) {
     test.expect(1);
-    test.equal((new Record('./fake/path')).toString(), null, 'should return null if buffer has not been populated yet');
+    test.equal((new Record('fake/path')).toString(), null, 'should return null if buffer has not been populated yet');
     test.done();
   },
   '#clone': function (test) {
