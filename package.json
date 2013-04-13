@@ -1,26 +1,26 @@
 {
-  "name": "datapipe",
+  "name": "record",
   "description": "An extendable Node.js Buffer class with promised-based piping.",
   "version": "0.1.0",
   "author": "Tyler Kellen",
   "homepage": "http://tkellen.com/",
   "repository": {
     "type": "git",
-    "url": "git://github.com/node-task/datapipe.git"
+    "url": "git://github.com/node-task/record.git"
   },
   "bugs": {
-    "url": "http://github.com/node-task/datapipe/issues"
+    "url": "http://github.com/node-task/record/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://github.com/node-task/datapipe/blob/master/LICENSE"
+      "url": "http://github.com/node-task/record/blob/master/LICENSE"
     }
   ],
   "scripts": {
     "test": "grunt test"
   },
-  "main": "lib/datapipe",
+  "main": "lib/record",
   "keywords": [
     "node-task",
     "buffer",

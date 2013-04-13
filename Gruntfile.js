@@ -1,6 +1,6 @@
 /*
- * datapipe
- * http://github.com/node-task/datapipe
+ * record
+ * http://github.com/node-task/record
  *
  * Copyright (c) 2013 Tyler Kellen, contributors
  * Licensed under the MIT license.

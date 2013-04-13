@@ -25,31 +25,24 @@ exports['Record'] = {
   },
   '#clone': function (test) {
     test.expect(2);
-    var buffer = new Record('path');
-    buffer.content('yo');
-    var copy = buffer.clone();
+    var record = new Record('path');
+    record.content('yo');
+    var copy = record.clone();
     test.equal(copy.toString(), 'yo', 'should return a clone of this instance');
     copy.content('changed');
-    test.equal(buffer.toString(), 'yo', 'should return a clone of this instance');
+    test.equal(record.toString(), 'yo', 'should return a clone of this instance');
     test.done();
   },
   '#pipe': function (test) {
     test.expect(1);
-    var buffer = new Record('path', 'utf8', 'dude');
+    var record =  new Record('path', 'utf8', 'dude');
     var reverse = function(input) {
       var reversed = input.toString().split("").reverse().join("");
       return input.content(reversed);
     };
-    buffer.pipe(reverse).then(function (self) {
+    record.pipe(reverse).then(function (self) {
       test.equal(self.toString(), 'edud', 'should allow methods to transform buffer');
       test.done();
     });
-  },
-  '#extend': function (test) {
-    test.expect(1);
-    var Extended = Record.extend({property:'set'});
-    var ext = new Extended('blah');
-    test.equal(ext.property, 'set', 'should create new constructor with properties added to prototype');
-    test.done();
   }
 };
