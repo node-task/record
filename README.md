@@ -8,7 +8,7 @@ See node-task [Record specification](http://github.com/node-task/spec/wiki/Recor
 ```js
 var Record = require('record');
 var record =  new Record('path/to/source');
-record.source; // path/to/source
+record.path; // path/to/source
 record.content('bar'); // <Record "path/to/source" <Buffer 62 61 72>>
 record.toString(); // 'bar'
 record.prepend('foo'); // <Record "path/to/source" <Buffer 62 61 72 66 6f 6f>>
