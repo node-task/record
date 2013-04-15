@@ -7,7 +7,7 @@ See node-task [Record specification](http://github.com/node-task/spec/wiki/Recor
 ## Usage
 ```js
 var Record = require('record');
-var record =  new Record('path/to/source');
+var record = new Record('path/to/source');
 record.path; // path/to/source
 record.content('bar'); // <Record "path/to/source" <Buffer 62 61 72>>
 record.toString(); // 'bar'
@@ -21,7 +21,9 @@ var record = new Record('path/to/source', 'hex');
 record.content('data'); // TypeError: Invalid hex string (encoding defaults to hex)
 record.content(new Buffer('data', 'utf8')).toString(); // '64617461'
 
-var record =  new Record('path/to/source', 'utf8', 'foo');
+var record = new Record('path/to/source', new Buffer('dudes')); // <Record "path/to/source" <Buffer 64 75 64 65 73>>
+
+var record = new Record('path/to/source', 'utf8', 'foo');
 var addBar = function(input) {
   return input.append(" bar");
 };
