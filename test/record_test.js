@@ -7,7 +7,7 @@ exports['Record'] = {
   'constructor': function (test) {
     test.expect(4);
     test.equal((new Record('test')).constructor, Record, 'should create a record instance');
-    test.equal((new Record('test')).path, 'test', 'should save buffer source');
+    test.equal((new Record('test')).path, 'test', 'should save path');
     test.equal((new Record('test', 'ascii')).encoding, 'ascii', 'should save encoding');
     test.equal((new Record('test','utf8','content')).toString(), 'content', 'should allow initialization with value');
     test.done();
