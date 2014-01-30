@@ -1,38 +1,38 @@
 {
   "name": "record",
-  "description": "An extendable Node.js Buffer class with promised-based piping.",
-  "version": "0.1.0",
-  "author": "Tyler Kellen",
-  "homepage": "http://tkellen.com/",
+  "description": "The canonical implementation of the node-task Record specification.",
+  "version": "0.2.0",
+  "homepage": "https://github.com/node-task/record",
+  "author": {
+    "name": "Tyler Kellen",
+    "url": "http://goingslowly.com/"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/node-task/record.git"
   },
   "bugs": {
-    "url": "http://github.com/node-task/record/issues"
+    "url": "https://github.com/node-task/record/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://github.com/node-task/record/blob/master/LICENSE"
+      "url": "https://github.com/node-task/record/blob/master/LICENSE"
     }
   ],
-  "scripts": {
-    "test": "grunt test"
+  "main": "index.js",
+  "engines": {
+    "node": ">= 0.10.0"
   },
-  "main": "lib/record",
+  "scripts": {
+    "test": "tap ./test"
+  },
+  "devDependencies": {
+    "tap": "~0.4.8"
+  },
   "keywords": [
     "node-task",
-    "buffer",
-    "pipe"
-  ],
-  "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-watch": "~0.3.1",
-    "grunt-contrib-jshint": "~0.4.1",
-    "grunt-contrib-nodeunit": "~0.1.2"
-  },
-  "dependencies": {
-    "when": "~2.0.0"
-  }
+    "virtual file",
+    "in-memory file"
+  ]
 }
